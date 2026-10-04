@@ -16,25 +16,17 @@
 
 ## インストール方法 (Installation Guide)
 
-この拡張機能は、[Chromeウェブストア版](https://chromewebstore.google.com/detail/ytm-immersion/nnpgbfkmlfneiclbeaniejaheojikhnb?hl=ja)または手動でインストールできます。以下は手動インストール手順です。
+この拡張機能は、署名済みのものを手動でインストールする方式です。以下は手動インストール手順です。
 
 ### 1. ファイルのダウンロードと準備
 
-#### 方法1: Gitを使用してリポジトリをクローン 
-```bash
-git clone https://github.com/naikaku1/YTM_Immersion
-```
-#### 方法2: フォルダをダウンロード（更新に手間がかかります）
-1. 緑色の**Code**メニューから**Download Zip**を選択します。
-2. ダウンロードされたフォルダを解凍します
+リリースからxpiファイルをダウンロード
+1. [Release](https://github.com/reel3030/YTM_Immersion_firefox_port/releases/)からAssetsの.xpiファイルをダウンロードします。
 
-### 2. Chromeでの読み込み手順
+### 2. Firefoxでの読み込み手順
 
-1. お使いのブラウザを開きます。
-2. アドレスバーに **`chrome://extensions`** (Chrome/Edge)
-3. 画面右上の **「デベロッパーモード」** (Developer Mode) をONにします。
-4. 左上の **「パッケージ化されていない拡張機能を読み込む」** ボタンをクリックします。
-5. 手順1で解凍した **フォルダ全体** を選択して読み込みます。
+1. お使いのFirefoxを開きます。
+2. ファイルをダブルクリックして、お使いのfirefoxにaddonをいれるためのタブが開きますので、そこで指示に従ってインストールしてください。。
 
 ### 3. 使い方
 
@@ -46,7 +38,9 @@ git clone https://github.com/naikaku1/YTM_Immersion
 ## 　対応機種について
 
 * Chromiumをエンジンとする、全てのブラウザ
-* Mac,WIndows,Linuxに対応しますが、Mac上での開発につき、**WindowsでのUI崩等が発生する**可能性があります。
+* Mac,WIndows,Linuxに対応しますが、フォーク元のMac上での開発につき、**WindowsでのUI崩等が発生する**可能性があります。
+* フォークしてポートをする作業は、すべてLinuxで行っております。
+* 
 
 ---
 
@@ -55,7 +49,7 @@ git clone https://github.com/naikaku1/YTM_Immersion
 ### セキュリティと利用について
 
 * 本拡張機能は、利用者の個人情報やパスワードを収集する仕組みは一切含んでいません。
-* 本拡張機能は、YouTube Musicの閲覧体験を向上させることを目的とした非公式の個人制作物であり、Google LLCとは一切関係ありません。
+* 本拡張機能は、YouTube Musicの閲覧体験を向上させることを目的とした非公式の個人制作物をポートしてFirefoxに対応させたものであり、Google LLCとは一切関係ありません。
 * 本拡張機能は **MIT License** のもとで公開されています。
 
 ### 貢献について
@@ -186,8 +180,7 @@ node --test tests/
 
 ## コミュニティ
 
-要望・不具合報告・雑談は [Discord](https://discord.gg/cpBCACpt6j) へどうぞ。
-
+ポートによる問題はこのリポジトリのIssuesへどうぞ。
 ---
 
 ## プライバシー
