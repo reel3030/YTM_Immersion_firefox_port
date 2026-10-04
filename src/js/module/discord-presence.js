@@ -286,8 +286,8 @@
   document.addEventListener('freeze', syncBridge, { passive: true });
   document.addEventListener('resume', syncBridge, { passive: true });
   window.addEventListener('pageshow', syncBridge, { passive: true });
-  setInterval(() => {
-    attachMediaListeners();
-    syncBridge();
-  }, POLL_INTERVAL_MS);
+//  setInterval(() => {
+//    attachMediaListeners();
+//    syncBridge();
+//  }, POLL_INTERVAL_MS);
 })();

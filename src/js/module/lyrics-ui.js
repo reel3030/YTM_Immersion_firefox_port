@@ -4220,12 +4220,14 @@ const paintLyricWordRow = (row, t, rate = 1) => {
   // 光は位置を動かさないので丸めの問題が無い。合成できないプロパティ
   // なので、動きと同じアニメーションに混ぜると transform まで
   // 合成から外れてしまう。こちらは毎フレーム書く。
+/*
   for (let i = 0; i < spans.length; i++) {
     const span = spans[i];
     if (!span._glow || !Number.isFinite(span._start)) continue;
     const env = bellCurve((t - span._empStart) / span._empDur);
     writeLyricVar(span, '--wg', '_wg', env, WORD_STEP);
   }
+*/
 };
 
 // 計測は offsetLeft などを読むので、その場でレイアウトを1回確定させる。
@@ -8011,7 +8013,7 @@ const stepLyricScroll = (container, dt) => {
   container._scrollPos = pos;
   container._scrollVel = vel;
   container.scrollTop = pos;
-  container._scrollLastWritten = container.scrollTop;
+  container._scrollLastWritten = pos;
 
   // 自分で動かしているぶんの scroll イベントを、ユーザー操作と
   // 取り違えられないようにしておく(どちらの判定もこれを最初に見る)。
