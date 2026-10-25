@@ -36,15 +36,15 @@
 
 1. YouTube Musicを開き、曲を再生します。
 2. 画面右下のコントロールバーにある **[IMMERSION]** ボタンをクリックすると、没入モードがON/OFF切り替わります。
-3. ツールバーの拡張機能アイコンや、ショートカットキー **Alt+Shift+I**(Mac は Option+Shift+I)でも切り替えられます。YouTube Musicの画面が変わってボタンが見当たらない時にも使えます。ショートカットは `chrome://extensions/shortcuts` で変更できます。
-
+3. ツールバーの拡張機能アイコンや、ショートカットキー **Alt+Shift+I**(Mac は Option+Shift+I)でも切り替えられます。Y
 ---
 
 ## 　対応機種について
 
-* Chromiumをエンジンとする、全てのブラウザ
+* Geckoをエンジンとする、全てのブラウザ
 * Mac,WIndows,Linuxに対応しますが、フォーク元のMac上での開発につき、**WindowsでのUI崩等が発生する**可能性があります。
 * フォークしてポートをする作業は、すべてLinuxで行っております。
+* また、フォークでの動作確認は、すべてFirefox Developper Edition上で行っております。
 
 ---
 
