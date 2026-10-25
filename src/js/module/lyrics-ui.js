@@ -6527,6 +6527,20 @@ async function restoreLyricEffectsPreferences() {
   config.keepPastLyrics = !config.fadePastLyrics;
 }
 
+async function restoreLowCpuPreference() {
+  const [savedLowCpuMode, firefoxPerformanceInitialized] = await Promise.all([
+    storage.get('ytm_low_cpu_mode'),
+    storage.get('ytm_firefox_performance_initialized'),
+  ]);
+  if (IS_FIREFOX && firefoxPerformanceInitialized !== true) {
+    config.lowCpuMode = true;
+    await storage.set('ytm_low_cpu_mode', true);
+    await storage.set('ytm_firefox_performance_initialized', true);
+  } else if (savedLowCpuMode !== null) {
+    config.lowCpuMode = !!savedLowCpuMode;
+  }
+}
+
 // PiP の設定(タブを離れたら自動で開く)。
 // 起動時と設定パネルを初めて開いた時に読む。登録しておかないと
 // Chrome が呼んでくれないので、読んだらすぐ反映する。
@@ -6572,8 +6586,7 @@ async function initSettings() {
   config.lyricSourceMode = normalizeSourceMode(sourceModeStored);
   config.disabledLyricSources = normalizeDisabledLyricSources(await storage.get(DISABLED_LYRIC_SOURCES_KEY));
 
-  const lowCpuStored = await storage.get('ytm_low_cpu_mode');
-  if (lowCpuStored !== null) config.lowCpuMode = !!lowCpuStored;
+  await restoreLowCpuPreference();
   await restoreLyricEffectsPreferences();
   applyLyricEffectsSettings();
   await restorePipPreferences();
@@ -12039,8 +12052,7 @@ const runtimeSettingsReady = (async function applySavedRuntimeSettings() {
   document.body.classList.toggle('ytm-apple-bg', !!config.appleBg);
 
   // 5. 軽量モードオプション
-  const lowCpuStored = await storage.get('ytm_low_cpu_mode');
-  if (lowCpuStored !== null) config.lowCpuMode = !!lowCpuStored;
+  await restoreLowCpuPreference();
   document.body.classList.toggle('ytm-lightweight-mode', !!config.lowCpuMode);
   applyLyricEffectsSettings();
 

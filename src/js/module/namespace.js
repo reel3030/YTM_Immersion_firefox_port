@@ -345,6 +345,8 @@ const normalizeSearchTrackTitle = (s, artist = '') => {
     return 'en';
   })();
 
+  const IS_FIREFOX = typeof navigator !== 'undefined' && /Firefox\//i.test(navigator.userAgent || '');
+
   let config = {
     deepLKey: null,
     // 翻訳は既定オフ。使いたい人が設定パネルから明示的に有効化する。
@@ -383,7 +385,9 @@ const normalizeSearchTrackTitle = (s, artist = '') => {
     // 設定の「歌詞ソース」タブでオフにした標準の取得元(lyric-sources.js)
     disabledLyricSources: [],
     alwaysShowMeaning: false,
-    lowCpuMode: false,
+    // Firefox は描画負荷が高くなりやすいため、初期状態では背景効果と更新頻度を抑える。
+    // 保存済み設定があれば initSettings で上書きされ、利用者がいつでも切り替えられる。
+    lowCpuMode: IS_FIREFOX,
     // タブを離れた時に PiP を自動で開く(Chrome の自動 PiP。pip-manager.js)
     pipAutoOpen: false,
     // UIサイズ (1 = 100%)。CSS 変数 --ytm-ui-scale に反映される。
